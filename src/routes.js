@@ -1,13 +1,10 @@
 const routes = require('express').Router()
+const ProductController = require('./app/controllers/ProductController')
 
-routes.get('/produtos', (req,res) => {
-    res.json({msg: 'Usuarios!'})
-})
-
-routes.post('/produtos', (req,res) => {
-    const nome = req.body.nome
-    res.json({msg : `Nome do produto: ${nome}`})
-})
-
+routes.get('/products', ProductController.index)
+routes.get('/products/:_id', ProductController.show)
+routes.post('/products', ProductController.create)
+routes.put('/products/:_id', ProductController.update)
+routes.delete('/products/:_id', ProductController.delete)
 
 module.exports = routes
