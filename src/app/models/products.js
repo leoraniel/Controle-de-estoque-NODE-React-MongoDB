@@ -1,5 +1,6 @@
+// Importar moongose para comunicar com o banco de dados
 const mongoose = require('../../database/index')
-
+// Criando um "esquema" para o banco de dados
 const productsSchema = new mongoose.Schema({
     name: {type: String, required: true},
     amount: {type: Number, required: true},

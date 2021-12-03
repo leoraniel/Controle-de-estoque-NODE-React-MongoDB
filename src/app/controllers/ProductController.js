@@ -1,6 +1,8 @@
+// Importando modulo de products
 const products = require('../models/products')
-
+// Criando classe produto 
 class ProductController{
+    // Metodo para procurar todos os produtos
     async index(req, res) {
         try {
             const allProduct = await products.find()
@@ -10,7 +12,7 @@ class ProductController{
             return res.status(400).json(err)
         }
     }
-
+    // Metodo para procurar um unico produto
     async show(req, res) {
         const { _id } = req.params
 
@@ -22,7 +24,7 @@ class ProductController{
             return res.status(400).json(err)
         }
     }
-
+    // Metodo para adicionar produtos
     async create(req, res) {
         const { name, amount } = req.body
         
@@ -34,7 +36,7 @@ class ProductController{
             return res.status(400).json(err)
         }
     }
-
+    // Metodo para atualizar produtos
     async update(req, res) {
         const { _id } = req.params
 
@@ -46,7 +48,7 @@ class ProductController{
             
         }
     }
-
+    // Metodo para deletar produtos
     async delete(req, res) {
         const { _id } = req.params
 
@@ -60,5 +62,5 @@ class ProductController{
     }
     
 }
-
+// Exportar a classe
 module.exports = new ProductController()
